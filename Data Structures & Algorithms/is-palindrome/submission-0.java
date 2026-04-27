@@ -1,0 +1,27 @@
+class Solution {
+    public boolean isPalindrome(String s) {
+    if (s == null) return true;
+
+        int left = 0;
+        int right = s.length() - 1;
+
+        while (left < right) {
+            char cLeft = s.charAt(left);
+            char cRight = s.charAt(right);
+            if (!Character.isLetterOrDigit(cLeft)) {
+                left++;
+                continue;
+            }
+            if (!Character.isLetterOrDigit(cRight)) {
+                right--;
+                continue;
+            }
+            if (Character.toLowerCase(cLeft) != Character.toLowerCase(cRight)) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
+    }
+}
